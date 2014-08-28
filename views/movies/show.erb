@@ -1,0 +1,18 @@
+<header>
+  <h1><%= @movie[0]["title"] %></h1>
+</header>
+
+<div class ="movie_show">
+<p><span>Studio: </span><%= @movie[0]["studio"] %></p>
+  <p><span>Year: </span><%= @movie[0]["year"] %><p>
+  <p><span>Bob's Rating: </span><%= @movie[0]["rating"] %></p>
+  <p><span>Genre: </span><%= @movie[0]["genre"] %></p>
+  <p><span>Synopsis: </span></p>
+  <p><%= @movie[0]["synopsis"] %></p>
+  <p><span>Cast Members: </span></p>
+  <ul>
+  <% @movie.each do |actor| %>
+  <li><a href="<%= "/actors/#{actor["id"]}" %>"><%= actor["actor"] %></a></li>
+  <% end %>
+  </ul>
+</div>

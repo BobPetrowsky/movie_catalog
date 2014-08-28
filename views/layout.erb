@@ -1,0 +1,53 @@
+<!Doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <nav>
+    <ul>
+      <li class="brand">
+        <a href= "<%= "/" %>" >Bob's Movies</a>
+        <div class="arrow-one"></div>
+      </li>
+      <li class="movies">
+        <a href="<%= "/movies" %>">Movies</a>
+        <div class="arrow-two"></div>
+      </li>
+      <li class="highest">
+        <a href="<%= "/actors" %>">Actors</a>
+        <div class="arrow-three"></div>
+      </li>
+      <li class="newest">
+        <a href="#">Genres</a>
+        <div class="arrow-four"></div>
+          <ul>
+            <% @genres.each do |genre| %>
+              <li>
+               <a href="/movies/genre/<%= genre["id"] %>"><%= genre["name"] %></a>
+              </li>
+            <% end %>
+          </ul>
+      </li>
+      <li>
+        <form action="/movies" method="get">
+          <label for="query">Search: </label>
+          <input type="text" name="query" id="query" />
+
+          <input id="btn" type="submit" value="GO!" />
+        </form>
+      </li>
+
+    </ul>
+    </nav>
+
+
+    <%= yield %>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/app.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

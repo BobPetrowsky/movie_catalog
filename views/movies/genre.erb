@@ -1,0 +1,27 @@
+<div class="movie_list">
+
+  <ul>
+    <% @movies_genre.each do |movie| %>
+      <div class="circle">
+        <li>
+          <a href="<%= "/movies/#{movie["id"]}" %>">
+          <p><%= "#{movie["title"]} "%></p>
+          <p><%="Year: #{movie["year"].to_i} "%></p>
+          <p><%=" Bob's Rating: #{movie["rating"]} "%></p>
+          <p><%=" Studio: #{movie["studio"]} "%></p></a>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+    <div class="prev">
+    <% if @page_num != 1 %>
+      <a href="/movies/genre/<%=params[:id]%>?page=<%= @page_num - 1 %>">Previous</a>
+    <% end %>
+    </div>
+    <div class="next">
+    <% if @page_num < 6 %>
+      <a href="/movies/genre/<%=params[:id]%>?page=<%= @page_num + 1 %>">Next</a>
+    <% end %>
+    </div>
+  </div>
+</div>

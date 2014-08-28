@@ -1,0 +1,12 @@
+<header>
+  <h1><%= @actor[0]["name"] %></h1>
+</header>
+
+<div class ="movie_show">
+<p><span>Movies: </span></p>
+  <ul>
+  <% @actor.each do |movie| %>
+  <li><a href="<%= "/movies/#{movie["movie.id"]}" %>"><span>Movie: </span><%= movie["movie"] %><span>  Character: </span><%= movie["character"] %></a></li>
+  <% end %>
+  </ul>
+</div>

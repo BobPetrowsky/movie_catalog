@@ -1,0 +1,23 @@
+<div class="movie_list">
+
+  <ul>
+    <% @actors.each do |actor| %>
+      <div class="circle">
+        <li>
+          <a href="<%= "/actors/#{actor["id"]}" %>">
+          <p><%= actor["name"] %></p></a>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+  <div class="prev">
+    <% if @page_num != 1 %>
+      <a href="/actors?page=<%= @page_num - 1 %>">Previous</a>
+    <% end %>
+    </div>
+    <div class="next">
+    <% if @page_num < 2672 %>
+      <a href="/actors?page=<%= @page_num + 1 %>">Next</a>
+    <% end %>
+  </div>
+</div>
